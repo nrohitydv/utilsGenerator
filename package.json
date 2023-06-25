@@ -1,0 +1,30 @@
+{
+  "name": "express",
+  "version": "0.0.1",
+  "description": "utils generator using qr,pdf,weather,currency",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon "
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nrohitydv/utilsGenerator.git"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "node"
+  ],
+  "author": "Rohit Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nrohitydv/utilsGenerator/issues"
+  },
+  "homepage": "https://github.com/nrohitydv/utilsGenerator#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
