@@ -1,26 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const qrcode = require('qrcode');
+const CC = require("currency-converter-lt");
 
- 
-router.get("/",(req,res) => {
-    res.send("hello from ui!");
+router.get("/", (req, res) => {
+  res.send("Hello from UI");
 });
-router.get("/qrcode",(req,res) => {
-    const generateQRCode = async text => {
-        try {
-          const qrCodeImage = await qrcode.toDataURL(text);
-          console.log(qrCodeImage); // Outputs the QR code image data URL
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      
-      // Call the function and pass the text you want to encode
-      generateQRCode('good mrning!');
-      return res.send(`hello ${generateQRCode}`)
+
+router.get("/converter/:currency1/:currency2/:value", async (req, res) => {
+  const { currency1, currency2, value } = req.params;
+  const currencyConverter = new CC({
+    from: currency1,
+    to: currency2,
+    amount: Number(value),
   });
+  const result = await currencyConverter.convert();
+  res.send(
+    `Currency Price of ${value} ${currency1} in ${currency2} is ${result}`
+  );
+});
 
-
-
-module.exports=router;
+module.exports = router;
