@@ -6,6 +6,7 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
+
 router.get("/converter/:currency1/:currency2/:value", async (req, res) => {
   const { currency1, currency2, value } = req.params;
   const currencyConverter = new CC({
