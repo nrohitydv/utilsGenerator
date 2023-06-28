@@ -14,6 +14,10 @@ app.set("views", "./views");
 app.use(express.static("public"));
 const indexRouter = require("./routes");
 
+app.get("/broken", (req, res, next) => {
+  throw new Error("Something broke!");
+});
+
 app.use("/", indexRouter);
 
 app.use((err, res, req, next) => {
