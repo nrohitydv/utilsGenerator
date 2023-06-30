@@ -6,16 +6,23 @@
     <title>Form</title>
   </head>
   <body>
+    <div id="msg"></div>
     <form id="contactForm" onsubmit="formSumbit(); return false;">
-      <input type="text" name="name" placeholder="name" />
+      <input type="text" id="name" name="name" placeholder="name" />
       <button type="submit">Sumbit</button>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
       function formSumbit() {
         console.log("form submitted!");
-        event.preventDefault();
-        const contactForm = document.getElementByID("contactForm");
+        const contactForm = document.getElementById("contactForm");
+        const payload = {
+          name: document.getElementById("name").value,
+        };
+        axios.post("/api/v1/form", payload).then((res) => {
+          document.getElementById("msg").innerHTML = res.data.msg;
+          contactForm.reset();
+        });
       }
     </script>
   </body>
