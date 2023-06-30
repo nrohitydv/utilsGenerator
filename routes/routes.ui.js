@@ -15,7 +15,7 @@ router.get("/shop", (req, res) => {
 });
 
 router.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("form");
 });
 
 router.get("/converter/:currency1/:currency2/:value", async (req, res) => {
