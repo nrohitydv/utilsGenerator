@@ -6,9 +6,17 @@
     <title>Form</title>
   </head>
   <body>
-    <form id="contactForm">
+    <form id="contactForm" onsubmit="formSumbit(); return false;">
       <input type="text" name="name" placeholder="name" />
       <button type="submit">Sumbit</button>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+      function formSumbit() {
+        console.log("form submitted!");
+        event.preventDefault();
+        const contactForm = document.getElementByID("contactForm");
+      }
+    </script>
   </body>
 </html>
