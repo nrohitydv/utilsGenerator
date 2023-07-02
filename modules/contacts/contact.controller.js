@@ -20,3 +20,5 @@ const update = (id, payload) => {
 const remove = (id) => {
   return Model.replaceOne(id);
 };
+
+module.exports = { create, list, getById, update, remove };

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const contactRouter = require("../modules/contacts/contact.routes.api");
+
 router.get("/", (req, res, next) => {
   try {
     res.json({ msg: "Hello from API" });
@@ -9,9 +11,6 @@ router.get("/", (req, res, next) => {
   }
 });
 
-router.post("/form", (req, res, next) => {
-  console.log({ data: req.body });
-  res.json({ msg: "thank you your form is submitted!" });
-});
+router.get("/contacts", contactRouter);
 
 module.exports = router;

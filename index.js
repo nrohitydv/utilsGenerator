@@ -1,13 +1,14 @@
-const express = require("express");
-const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const ejs = require("ejs");
-const bodyParser = require("body-parser");
+const express = require("express");
 const mongoose = require("mongoose");
-//mongodb connection
+const morgan = require("morgan");
+
+// mongodb Connection
 mongoose
-  .connect("mongodb://localhost:27017/test")
-  .then(() => console.log("Connected!"));
+  .connect("mongodb://localhost:27017/utilsGenerator")
+  .then(() => console.log("Database Connected!"));
 
 const app = express();
 
@@ -16,9 +17,9 @@ const indexRouter = require("./routes");
 // Setting up the third party middlewares
 app.use(morgan("short"));
 app.use(cors());
-// for parsing application/json
+// JSON Data capture
 app.use(bodyParser.json());
-// for parsing application/xwww-
+// Form data capture
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setting up the EJS Templating
