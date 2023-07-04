@@ -19,7 +19,7 @@
         const payload = {
           name: document.getElementById("name").value,
         };
-        axios.post("/api/v1/form", payload).then((res) => {
+        axios.post("/api/v1/contacts", payload).then((res) => {
           document.getElementById("msg").innerHTML = res.data.msg;
           contactForm.reset();
         });

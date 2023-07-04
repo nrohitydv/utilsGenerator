@@ -11,6 +11,6 @@ router.get("/", (req, res, next) => {
   }
 });
 
-router.get("/contacts", contactRouter);
+router.use("/contacts", contactRouter);
 
 module.exports = router;

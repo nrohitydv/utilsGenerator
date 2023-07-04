@@ -1,5 +1,4 @@
-const { Model } = require("mongoose");
-const contactModel = require("./contact.model");
+const Model = require("./contact.model");
 
 const create = (payload) => {
   return Model.create(payload);
