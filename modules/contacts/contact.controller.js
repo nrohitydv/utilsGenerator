@@ -1,23 +1,24 @@
-const Model = require("./contact.model");
+const contactModel = require("./contact.model");
 
+// CRUD Operations
 const create = (payload) => {
-  return Model.create(payload);
+  return contactModel.create(payload);
 };
 
 const list = () => {
-  return Model.find();
+  return contactModel.find();
 };
 
 const getById = (id) => {
-  return Model.findOne(id);
+  return contactModel.findOne({ _id: id });
 };
 
 const update = (id, payload) => {
-  return Model.updateOne(id, payload);
+  return contactModel.updateOne({ _id: id }, payload);
 };
 
 const remove = (id) => {
-  return Model.replaceOne(id);
+  return contactModel.deleteOne({ _id: id });
 };
 
 module.exports = { create, list, getById, update, remove };
